@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Versions of Python to Build.
-export PYTHON_VER=${PYTHON_VER:-3.7.0}
 # Compiler paths.
 export CC=${CC:-`which clang-6.0`}
 export CXX=${CXX:-`which clang-cpp-6.0`}
