@@ -1,14 +1,24 @@
 pipeline {
   agent any
   stages {
-    stage('AllPython') {
+    stage('BuildPython') {
       steps {
-        sh '${WORKSPACE}/all_py.sh'
+        sh '${WORKSPACE}/build_python.sh'
       }
     }
-    stage('Archive') {
+    stage('BuildDarknet') {
       steps {
-        archiveArtifacts(artifacts: 'opt/*', onlyIfSuccessful: true, fingerprint: true)
+        sh '${WORKSPACE}/build_darknet.sh'
+      }
+    }
+    stage('Build All the Pythons') {
+      steps {
+        sh '${WORKSPACE}/pythons.sh'
+      }
+    }
+    stage('Build All the Darknets') {
+      steps {
+        sh '${WORKSPACE}/darknets.sh'
       }
     }
   }
