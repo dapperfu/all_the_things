@@ -6,5 +6,10 @@ pipeline {
         sh '${WORKSPACE}/all_py.sh'
       }
     }
+    stage('Archive') {
+      steps {
+        archiveArtifacts(artifacts: 'opt/*', onlyIfSuccessful: true, fingerprint: true)
+      }
+    }
   }
 }
