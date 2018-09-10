@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('AllPython') {
       steps {
-        sh './all_py.sh'
+        sh '${WORKSPACE}/all_py.sh'
       }
     }
   }
