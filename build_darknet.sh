@@ -12,7 +12,7 @@ export EXEC=${EXEC:-darknet-${BASENAME}}
 export SLIB=${SLIB:-libdarknet-${BASENAME}.so}
 export ALIB=${SLIB:-libdarknet-${BASENAME}.a}
 
-export DARKNET_DIR=${DARKNET_DIR:-/tmp/darknet}
+export DARKNET_DIR=${DARKNET_DIR:-${WORKSPACE}/darknet}
 if [ ! -d "${DARKNET_DIR}" ]; then
 	git clone git@github.com:jed-frey/darknet.git ${DARKNET_DIR}
 fi
