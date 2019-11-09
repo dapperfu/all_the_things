@@ -7,8 +7,8 @@ apt-get install --yes icecc ccache
 ICECC=`which icecc`
 CCACHE=`which ccache`
 
-ICECC_BIN=${HOME}/opt/icecc/bin
-CCACHE_BIN=${HOME}/opt/ccache/bin
+ICECC_BIN=/opt/icecc/bin
+CCACHE_BIN=/opt/ccache/bin
 
 rm -rf ${ICECC_BIN}
 rm -rf ${CCACHE_BIN}

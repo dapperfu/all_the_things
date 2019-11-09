@@ -2,7 +2,7 @@
 
 WORKSPACE_ROOT=${WORKSPACE:-${PWD}}
 OPENBLAS=${WORKSPACE_ROOT}/OpenBLAS
-JOBS=6
+export JOBS=${JOBS:-8}
 
 rm -rf ${OPENBLAS}
 git clone --depth=1 https://github.com/xianyi/OpenBLAS.git ${OPENBLAS}

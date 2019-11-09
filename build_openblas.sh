@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+. cfg.sh
+
 # Compiler paths.
 export CC=${CC:-`which clang-6.0`}
 export CXX=${CXX:-`which clang-cpp-6.0`}
@@ -11,21 +13,20 @@ export JOBS=${JOBS:-8}
 export SH=`which sh`
 
 # Base
-export ROOT=${WORKSPACE:-${PWD}}
-export PYTHON_ROOT=${ROOT}/python
-
-export PYTHON_URL=https://www.python.org/ftp/python/${PYTHON_VER}/Python-${PYTHON_VER}.tgz
+export CLONE_URL=${CLONE_URL:-https://github.com/xianyi/OpenBLAS.git}
+export CLONE_DEPTH=${CLONE_DEPTH:-0}
 export CACHE_DIR=${CACHE_DIR:-/tmp}
 # Local directory for Python source code.
-export PYTHON_DIR=${CACHE_DIR}/Python-${PYTHON_VER}
-cd /
+export WORKSPACE_ROOT=${WORKSPACE:-${ROOT}}
+export OPENBLAS_SRC=${WORKSPACE_ROOT}/OpenBLAS
+
 # Don't hammer the download servers if it already exists.
 if [ ! -d "${PYTHON_DIR}" ]; then
 	curl -L ${PYTHON_URL} | tar xz --directory=${CACHE_DIR}
 fi
 cd ${PYTHON_DIR}
 echo "**************************************"
-echo "* Building Python ${PYTHON_VER} with:"
+echo "* Building OpenBLAS ${PYTHON_VER} with:"
 echo "* \${CC}=${CC}"
 echo "* \${CXX}=${CXX}"
 echo "* \${AR}=${AR}"
