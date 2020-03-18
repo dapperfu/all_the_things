@@ -29,7 +29,7 @@ done
 # LLVM
 for CLANG_VER in 3.9 4.0 5.0 6.0 7 8
 do
-	debs+="clang-${CLANG_VER} "
+	debs+="clang-${CLANG_VER} libclang-${CLANG_VER}-dev "
 	ln -s ${ICECC} ${ICECC_BIN}/clang-${CLANG_VER}
 	ln -s ${ICECC} ${ICECC_BIN}/clang++-${CLANG_VER}
 	ln -s ${CCACHE} ${CCACHE_BIN}/clang-${CLANG_VER}

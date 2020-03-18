@@ -17,14 +17,14 @@ export CC=${CC:-`which gcc-6`}
 export CXX=${CXX:-`which g++-6`}
 export AR=${AR:-`which gcc-ar-6`}
 
-export GENERATOR=${GENERATOR:-Ninja}
+export GENERATOR=${GENERATOR:-Unix Makefiles}
 export BUILD_DIR=${BUILD_DIR:-${ROOT}/caffe2_`basename ${CC}`_build}
 
 rm -rf ${BUILD_DIR}
 mkdir --parents ${BUILD_DIR}
 cd ${BUILD_DIR}
 
-cmake -G ${GENERATOR} \
+cmake -G"${GENERATOR}" \
       -DCMAKE_BUILD_TYPE=RELEASE \
       -DUSE_NATIVE_ARCH=ON \
       -DUSE_NCCL=OFF \
@@ -47,4 +47,5 @@ echo "* \${CXX}=${CXX}"
 echo "* \${AR}=${AR}"
 echo "**************************************"
 
-ninja -j6
+make -j6
+# ninja -j6

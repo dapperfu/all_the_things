@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # Versions of Python to Build.
-export PYTHON_VER=${PYTHON_VER:-3.7.0}
+export PYTHON_VER=${PYTHON_VER:-3.7.2}
 # Compiler paths.
-export CC=${CC:-`which clang-6.0`}
-export CXX=${CXX:-`which clang-cpp-6.0`}
-export AR=${AR:-`which llvm-ar-6.0`}
+export CC=${CC:-`which clang-8`}
+export CXX=${CXX:-`which clang-cpp-8`}
+export AR=${AR:-`which llvm-ar-8`}
 
 # Tool paths.
 export MAKE=${MAKE:-`which make`}
@@ -14,7 +14,7 @@ export SH=`which sh`
 
 # Base
 export ROOT=${WORKSPACE:-${PWD}}
-export PYTHON_ROOT=${ROOT}/python
+export PYTHON_ROOT=${ROOT}/python/python${PYTHON_VER}
 
 export PYTHON_URL=https://www.python.org/ftp/python/${PYTHON_VER}/Python-${PYTHON_VER}.tgz
 export CACHE_DIR=${CACHE_DIR:-/tmp}
